@@ -68,17 +68,21 @@ steps:
  
  kubectl create -f drkiq-deployment.yaml   
 
-
-
-8- check status of pods
- 
-  kubectl get pods -w   
   
   
 # Bonus:
  using configmaps in kubernetes for the environment variables
 
  kubectl create -f ConfigMap.yaml    
+ 
+ 
+8- check status of pods
+ 
+  kubectl get pods -w   
+  
+![Screenshot](mywork.png)  
+  
+  
   
 9- get the ip of the cluster
   
@@ -91,8 +95,8 @@ kubectl  get services
 11-open it in the browser
 
   
+![Screenshot](ha.png)  
 
-![Screenshot](mywork.png)  
 
 
 
