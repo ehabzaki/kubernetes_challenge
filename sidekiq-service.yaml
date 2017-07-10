@@ -5,7 +5,6 @@ metadata:
     app: rails-app
   name: sidekiq
 spec:
-  clusterIP: None
   ports:
   - name: headless
     port: 55555

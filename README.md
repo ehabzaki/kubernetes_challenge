@@ -68,11 +68,9 @@ steps:
  
  kubectl create -f drkiq-deployment.yaml   
 
-8- create Ingress resource
- 
- kubectl create -f ingress.yaml  
 
-9- check status of pods
+
+8- check status of pods
  
   kubectl get pods -w   
   
@@ -82,8 +80,21 @@ steps:
 
  kubectl create -f ConfigMap.yaml    
   
+9- get the ip of the cluster
   
+  minikube ip
+  
+10- get the port of drkiq service
+
+kubectl  get services
+
+11-open it in the browser
+
+  
+
 ![Screenshot](mywork.png)  
+
+
 
 
 

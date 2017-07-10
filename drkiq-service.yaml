@@ -5,10 +5,12 @@ metadata:
     app: rails-app
   name: drkiq
 spec:
+  type: NodePort
   ports:
   - name: "8000"
     port: 8090
     targetPort: 8000
+    
   selector:
     name: drkiq
     app: rails-app
