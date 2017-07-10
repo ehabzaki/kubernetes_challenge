@@ -73,7 +73,11 @@ steps:
  kubectl create -f ingress.yaml  
 
 9- check status of pods
- kubectl get pods -w   
+ 
+  kubectl get pods -w   
+
+  
+![Screenshot](mywork.png)  
 
 
 
