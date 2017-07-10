@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1  
+kind: Ingress  
+metadata:  
+  name: rails-ingress
+spec:  
+  rules:
+    - host: rails.local
+      http:
+        paths:
+          - backend:
+              serviceName: drkiq
+              servicePort: 8000
+            path: /
