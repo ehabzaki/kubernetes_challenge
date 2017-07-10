@@ -21,44 +21,58 @@ https://github.com/ehabzaki/kubernetes_challenge
 
 steps:
 
-- start the cluster using minikube
-minikube start
+1- start the cluster using minikube
+   
+   minikube start
 
-- create the secret to store postgres password and secret token
+2- create the secret to store postgres password and secret token
+ 
  kubectl create secret generic postgres-pass --from-literal=password=yourpassword
+ 
  kubectl create secret generic token --from-literal=password=asecuretokenwouldnormallygohere
 
  
-- create the Kube resources for postgres
+3- create the Kube resources for postgres
  
  kubectl create -f drkiq-postgres-persistentvolumeclaim.yaml     
+ 
  kubectl create -f postgres-service.yaml         
+ 
  kubectl create -f postgres-deployment.yaml       
 
 
-- create the kube resources for redis
+4- create the kube resources for redis
+ 
  kubectl create -f drkiq-redis-persistentvolumeclaim.yaml   
+ 
  kubectl create -f redis-service.yaml     
+ 
  kubectl create -f redis-deployment.yaml     
 
 
-- create the kube resources for sidekiq
+5- create the kube resources for sidekiq
+ 
  kubectl create -f sidekiq-service.yaml    
+ 
  kubectl create -f sidekiq-deployment.yaml   
 
 
-- Kube Job
+6- Kube Job
+ 
  kubectl create -f job_migration.yaml
 
 
-- create app resources
+7- create app resources
+ 
  kubectl create -f drkiq-service.yaml   
+ 
  kubectl create -f drkiq-deployment.yaml   
 
-- create Ingress resource
+8- create Ingress resource
+ 
  kubectl create -f ingress.yaml  
 
-- check status of pods
+9- check status of pods
  kubectl get pods -w   
 
 
