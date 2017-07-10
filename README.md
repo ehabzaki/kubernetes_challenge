@@ -26,7 +26,7 @@ steps:
    minikube start
 
 2- create the secret to store postgres password and secret token
- 
+
  kubectl create secret generic postgres-pass --from-literal=password=yourpassword
  
  kubectl create secret generic token --from-literal=password=asecuretokenwouldnormallygohere
@@ -75,7 +75,13 @@ steps:
 9- check status of pods
  
   kubectl get pods -w   
+  
+  
+# Bonus:
+ using configmaps in kubernetes for the environment variables
 
+ kubectl create -f ConfigMap.yaml    
+  
   
 ![Screenshot](mywork.png)  
 

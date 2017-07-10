@@ -17,14 +17,10 @@ spec:
             secretKeyRef:
               name: postgres-pass
               key: password
-        - name: LISTEN_ON
-          value: 0.0.0.0:8000
-        - name: DATABASE_URL
-          value: postgresql://drkiq:yourpassword@postgres:5432/drkiq?encoding=utf8&pool=5&timeout=5000
-        - name: CACHE_URL
-          value: redis://redis:6379/0
-        - name: JOB_WORKER_URL
-          value: redis://redis:6379/0
+        envFrom:
+        - configMapRef:
+            name: drkiq-config
+
         image: ehab123/drkiq
         name: setup
       restartPolicy: Never
