@@ -13,56 +13,53 @@ I want to Do it, but with using kubernetes
 In order to prep for the Kubernetes deploy ,I packaged the Rails Docker image and push to a Docker registry(DockerHub).
 DockerHub repo link 
 https://hub.docker.com/r/ehab123/drkiq/
+
 now,I need to translate the docker-compose.yml config into Kubernetes resources.
-This is a repo of translation
+
+This is a repo of translation to 
 https://github.com/ehabzaki/kubernetes_challenge
 
+steps:
 
-1- create the secret to store postgres password
+- start the cluster using minikube
+minikube start
+
+- create the secret to store postgres password and secret token
  kubectl create secret generic postgres-pass --from-literal=password=yourpassword
+ kubectl create secret generic token --from-literal=password=asecuretokenwouldnormallygohere
 
  
-2- create the Kube resources for postgres
+- create the Kube resources for postgres
  
-kubectl create -f drkiq-postgres-persistentvolumeclaim.yaml
- 
+kubectl create -f drkiq-postgres-persistentvolumeclaim.yaml 
 kubectl create -f postgres-service.yaml
-
 kubectl create -f postgres-deployment.yaml
 
 
-3-create the kube resources for redis
-
+- create the kube resources for redis
 kubectl create -f drkiq-redis-persistentvolumeclaim.yaml
-
 kubectl create -f redis-service.yaml
-
 kubectl create -f redis-deployment.yaml
 
 
-4-create the kube resources for sidekiq
-
+- create the kube resources for sidekiq
 kubectl create -f sidekiq-service.yaml
-
 kubectl create -f sidekiq-deployment.yaml
 
 
-5-Kube Job
-
+- Kube Job
 kubectl create -f job_migration.yaml
 
 
-6-create app resources
-
+- create app resources
 kubectl create -f drkiq-service.yaml
 kubectl create -f drkiq-deployment.yaml
 
-7-created  Ingress resource
+- create Ingress resource
 kubectl create -f ingress.yaml
 
-8- check status of pods
-
-kubectl get pods -w  
+- check status of pods
+kubectl get pods -w 
 
 
 
